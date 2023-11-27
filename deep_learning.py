@@ -24,7 +24,8 @@ def build_model(n_neurons_hidden, n_neurons_output, learning_rate):
     model.add(keras.layers.Flatten(input_shape=[28, 28]))                                #input layer
 
     #iterate over the number of hidden layers to create the hidden layers:
-    model.add(keras.layers.Dense(n_neurons_hidden, activation="relu"))                   #hidden layer with ReLU activation function
+    for number in n_neurons_hidden:
+        model.add(keras.layers.Dense(n_neurons_hidden, activation="relu"))                   #hidden layer with ReLU activation function
 
     #output layer
     model.add(keras.layers.Dense(n_neurons_output, activation="softmax"))                #output layer with one neural for each class and the softmax activation function since the classes are exclusive
